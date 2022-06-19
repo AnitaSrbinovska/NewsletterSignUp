@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/signup.html");
+  res.sendFile(__dirname + "/index.html");
 });
 
 app.post("/", function(req, res) {
@@ -43,9 +43,9 @@ app.post("/", function(req, res) {
   const request = https.request(url, options, function(response) {
 
     if (response.statusCode === 401) {
-      res.sendFile(__dirname + "/success.html");
+      res.sendFile(__dirname + "/index.html");
     } else {
-      res.sendFile(__dirname + "/failure.html");
+      res.sendFile(__dirname + "/index.html");
     }
 
     response.on("data", function(data) {
@@ -58,7 +58,7 @@ app.post("/", function(req, res) {
 
 });
 
-app.post("/failure.html", function(req, res) {
+app.post("/index.html", function(req, res) {
   res.redirect("/");
 });
 
